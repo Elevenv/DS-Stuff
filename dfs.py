@@ -32,6 +32,13 @@
 # dfs('0',graph)
 
 
+def dfs(graph, node, visited):
+    if node not in visited:
+        visited.append(node)
+        for k in graph[node]:
+            dfs(graph,k, visited)
+    return visited
+
 graph= {
     'A' : ['B','C'],
     'B' : ['D','E','A'],
@@ -41,14 +48,7 @@ graph= {
     'F' : [],
     'G' : []
 }
- 
-def dfs(graph, node, visited):
-    if node not in visited:
-        visited.append(node)
-        for k in graph[node]:
-            dfs(graph,k, visited)
-    return visited
- 
+  
 visited = dfs(graph,'A', [])
 print(graph)
 print('DFS of above graph is : ')
